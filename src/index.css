@@ -1,0 +1,42 @@
+@import './styles/theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+    @apply transition-theme duration-500;
+  }
+
+  ::selection {
+    @apply bg-accent-primary/30 text-ink;
+  }
+}
+
+@layer utilities {
+  .bg-ambient-grid {
+    background-image: var(--grid-image);
+    background-size: 40px 40px;
+  }
+
+  .bg-ambient-circuit {
+    background-image: var(--circuit-image);
+    background-repeat: repeat;
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 12px rgb(var(--color-accent-primary) / 0.6);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 12px rgb(var(--color-accent-secondary) / 0.6);
+  }
+}

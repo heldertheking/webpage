@@ -1,0 +1,64 @@
+/*
+  Theme tokens. Both palettes are defined up front so switching `data-theme`
+  on <html> is a pure variable swap — nothing needs re-rendering, and every
+  color/shadow/background that uses these tokens transitions via the
+  `transition-theme` utility instead of snapping.
+*/
+
+:root {
+  color-scheme: light;
+
+  /* Professional / Stripe-Vercel light palette */
+  --color-surface: 255 255 255;
+  --color-surface-raised: 248 250 252;
+  --color-surface-sunken: 241 245 249;
+
+  --color-ink: 15 23 42;
+  --color-ink-muted: 71 85 105;
+  --color-ink-faint: 148 163 184;
+
+  --color-edge: 226 232 240;
+  --color-edge-strong: 203 213 225;
+
+  --color-accent-primary: 37 99 235;
+  --color-accent-secondary: 13 148 136;
+  --color-accent-warn: 180 83 9;
+  --color-accent-ok: 22 163 74;
+
+  --shadow-panel: 0 1px 2px rgb(15 23 42 / 0.06), 0 1px 3px rgb(15 23 42 / 0.08);
+  --shadow-panel-lg: 0 8px 24px -4px rgb(15 23 42 / 0.12), 0 2px 8px rgb(15 23 42 / 0.06);
+
+  --grid-image: linear-gradient(to right, rgb(15 23 42 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 23 42 / 0.05) 1px, transparent 1px);
+
+  --circuit-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='rgb(15,23,42)' stroke-opacity='0.06' stroke-width='1.5'%3E%3Cpath d='M0 30 H40 V60 H90'/%3E%3Cpath d='M120 90 H80 V50 H30'/%3E%3Ccircle cx='40' cy='30' r='2.5' fill='rgb(15,23,42)' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='90' cy='60' r='2.5' fill='rgb(15,23,42)' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='80' cy='90' r='2.5' fill='rgb(15,23,42)' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='30' cy='50' r='2.5' fill='rgb(15,23,42)' fill-opacity='0.08' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Cyber-neon / workbench dark palette */
+  --color-surface: 11 15 25;
+  --color-surface-raised: 17 23 38;
+  --color-surface-sunken: 6 9 16;
+
+  --color-ink: 226 232 240;
+  --color-ink-muted: 148 163 184;
+  --color-ink-faint: 71 85 105;
+
+  --color-edge: 30 41 59;
+  --color-edge-strong: 51 65 85;
+
+  --color-accent-primary: 34 211 238;
+  --color-accent-secondary: 232 121 249;
+  --color-accent-warn: 251 191 36;
+  --color-accent-ok: 74 222 128;
+
+  --shadow-panel: 0 0 0 1px rgb(34 211 238 / 0.08), 0 4px 20px rgb(0 0 0 / 0.55);
+  --shadow-panel-lg: 0 0 28px rgb(34 211 238 / 0.16), 0 12px 40px rgb(0 0 0 / 0.65);
+
+  --grid-image: linear-gradient(to right, rgb(34 211 238 / 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(34 211 238 / 0.09) 1px, transparent 1px);
+
+  --circuit-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='rgb(34,211,238)' stroke-opacity='0.14' stroke-width='1.5'%3E%3Cpath d='M0 30 H40 V60 H90'/%3E%3Cpath d='M120 90 H80 V50 H30'/%3E%3Ccircle cx='40' cy='30' r='2.5' fill='rgb(34,211,238)' fill-opacity='0.35' stroke='none'/%3E%3Ccircle cx='90' cy='60' r='2.5' fill='rgb(232,121,249)' fill-opacity='0.35' stroke='none'/%3E%3Ccircle cx='80' cy='90' r='2.5' fill='rgb(34,211,238)' fill-opacity='0.35' stroke='none'/%3E%3Ccircle cx='30' cy='50' r='2.5' fill='rgb(232,121,249)' fill-opacity='0.35' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+}
