@@ -80,7 +80,7 @@ export const projects: ProjectItem[] = [
             url: 'https://www.kirche-felsengrund.ch/'
         },
         url: 'https://www.kirche-felsengrund.ch/', // TODO: If allowed, link to source code
-        state: "ONGOING",
+        state: "PROTOTYPE",
         highlight: false //TODO: Change to true once webpage v2.0 is done
     },
     {
