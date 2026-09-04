@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <rect x="0.5" y="0.5" width="31" height="31" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+
+  <g fill="none" stroke-linejoin="round">
+    <!-- twisted connectors between the two differently-rotated cube faces -->
+    <g stroke="#94a3b8" stroke-width="1">
+      <path d="M23.3 26.43 L22.96 17.23"/>
+      <path d="M5.57 23.3 L14.77 22.96"/>
+      <path d="M8.7 5.57 L9.04 14.77"/>
+      <path d="M26.43 8.7 L17.23 9.04"/>
+    </g>
+
+    <!-- outer face, tilted -->
+    <path d="M23.3 26.43 L5.57 23.3 L8.7 5.57 L26.43 8.7 Z" stroke="#0f172a" stroke-width="1.6"/>
+
+    <!-- inner face, counter-rotated for the "turned" effect -->
+    <path d="M22.96 17.23 L14.77 22.96 L9.04 14.77 L17.23 9.04 Z" stroke="#2563eb" stroke-width="1.5"/>
+  </g>
+
+  <g fill="#0f172a">
+    <circle cx="23.3" cy="26.43" r="1"/>
+    <circle cx="5.57" cy="23.3" r="1"/>
+    <circle cx="8.7" cy="5.57" r="1"/>
+    <circle cx="26.43" cy="8.7" r="1"/>
+  </g>
+  <g fill="#2563eb">
+    <circle cx="22.96" cy="17.23" r="0.9"/>
+    <circle cx="14.77" cy="22.96" r="0.9"/>
+    <circle cx="9.04" cy="14.77" r="0.9"/>
+    <circle cx="17.23" cy="9.04" r="0.9"/>
+  </g>
+</svg>

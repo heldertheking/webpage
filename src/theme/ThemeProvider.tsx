@@ -21,6 +21,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.dataset.theme = theme
     window.localStorage.setItem(STORAGE_KEY, theme)
+    const favicon = document.getElementById('favicon') as HTMLLinkElement | null
+    if (favicon) favicon.href = theme === 'dark' ? '/favicon-dark.svg' : '/favicon-light.svg'
   }, [theme])
 
   const setTheme = useCallback((next: Theme) => setPendingTheme(next), [])

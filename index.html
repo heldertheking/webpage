@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href="https://heldertheking.com/" />
+      <link rel="icon" id="favicon" type="image/svg+xml" href="/favicon-light.svg"/>
+      <link rel="canonical" href="https://heldertheking.com/"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -107,6 +107,8 @@
               ? 'dark'
               : 'light';
         document.documentElement.dataset.theme = theme;
+          var favicon = document.getElementById('favicon');
+          if (favicon) favicon.href = theme === 'dark' ? '/favicon-dark.svg' : '/favicon-light.svg';
       })();
     </script>
   </head>
