@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#22d3ee" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#22d3ee"/>
+  <g transform="translate(80,180)">
+    <rect x="0" y="0" width="64" height="64" rx="14" fill="#0b0f19" stroke="#22d3ee" stroke-width="2"/>
+    <path d="M16 44V20h8l8 12 8-12h8v24h-6v-14l-8 12-8-12v14z" fill="#22d3ee"/>
+  </g>
+  <text x="80" y="330" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="26" fill="#22d3ee">// whoami</text>
+  <text x="80" y="400" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="700" fill="#f8fafc">Helder Oliveira</text>
+  <text x="80" y="450" font-family="Inter, system-ui, sans-serif" font-size="32" fill="#94a3b8">Software Engineer &amp; Builder</text>
+  <text x="80" y="500" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24" fill="#64748b">Java · Spring Boot · TypeScript · Angular · Embedded Systems</text>
+  <text x="80" y="580" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="24" fill="#22d3ee">heldertheking.com</text>
+</svg>
