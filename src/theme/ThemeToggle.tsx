@@ -2,8 +2,7 @@ import { motion } from 'framer-motion'
 import { useTheme } from './useTheme'
 
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme()
-  const isDark = theme === 'dark'
+  const { isDark, toggleTheme } = useTheme()
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     const rect = event.currentTarget.getBoundingClientRect()
@@ -12,6 +11,9 @@ export function ThemeToggle() {
     document.documentElement.style.setProperty('--theme-origin-x', `${originX}%`)
     document.documentElement.style.setProperty('--theme-origin-y', `${originY}%`)
     toggleTheme()
+    // Without this the button keeps focus after a click, and `group-focus-within`
+    // below keeps the tooltip pinned open until something else steals focus.
+    event.currentTarget.blur()
   }
 
   return (
@@ -53,12 +55,9 @@ export function ThemeToggle() {
       <div
         id="theme-toggle-tooltip"
         role="tooltip"
-        className="pointer-events-none absolute right-0 top-full z-50 mt-2 w-48 origin-top-right scale-95 rounded-lg border border-edge bg-surface-raised p-2.5 text-right opacity-0 shadow-panel-lg transition-theme duration-150 group-hover:scale-100 group-hover:opacity-100 group-focus-within:scale-100 group-focus-within:opacity-100"
+        className="pointer-events-none absolute right-0 top-full z-50 mt-2 w-max origin-top-right scale-95 whitespace-nowrap rounded-lg border border-edge bg-surface-raised px-2.5 py-1.5 opacity-0 shadow-panel-lg transition-theme duration-150 group-hover:scale-100 group-hover:opacity-100 group-focus-within:scale-100 group-focus-within:opacity-100"
       >
-        <p className="text-xs font-semibold text-ink">Day / Night mode</p>
-        <p className="mt-0.5 text-[11px] leading-snug text-ink-muted">
-          Day shows my professional work, night shows my personal projects.
-        </p>
+        <p className="text-xs font-medium text-ink">{isDark ? 'Switch to day mode' : 'Switch to night mode'}</p>
       </div>
     </div>
   )

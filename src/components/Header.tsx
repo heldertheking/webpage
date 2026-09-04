@@ -3,16 +3,16 @@ import {useTheme} from '../theme/useTheme'
 import {ThemeToggle} from '../theme/ThemeToggle'
 import {HardwareStatusBadge} from './HardwareStatusBadge'
 
-const NAV_ITEMS = ['Work', 'Stack', 'Highlights', 'Contact']
-
 interface HeaderProps {
     terminalOpen: boolean
     onToggleTerminal: () => void
 }
 
 export function Header({terminalOpen, onToggleTerminal}: HeaderProps) {
-    const {theme} = useTheme()
-    const isDark = theme === 'dark'
+    const {isDark} = useTheme()
+
+    // "Work" (job history) only exists in light/professional mode — see WorkExperienceSection.
+    const navItems = ['About', ...(isDark ? [] : ['Work']), 'Projects', 'Stack', 'Highlights', 'Contact']
 
     enum Status {
         WORKING = "Status.WORKING",
@@ -94,7 +94,7 @@ export function Header({terminalOpen, onToggleTerminal}: HeaderProps) {
                 </div>
 
                 <nav className="hidden items-center gap-1 md:flex">
-                    {NAV_ITEMS.map((item) => (
+                    {navItems.map((item) => (
                         <a
                             key={item}
                             href={`#${item.toLowerCase()}`}

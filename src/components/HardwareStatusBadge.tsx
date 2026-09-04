@@ -36,8 +36,7 @@ interface HardwareStatusBadgeProps {
  * markup, same props — only the token classes below branch on theme.
  */
 export function HardwareStatusBadge({ label, value, tone = 'ok' }: HardwareStatusBadgeProps) {
-  const { theme } = useTheme()
-  const isDark = theme === 'dark'
+  const { isDark } = useTheme()
 
   return (
     <motion.div

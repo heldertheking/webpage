@@ -39,4 +39,34 @@
   .text-glow-secondary {
     text-shadow: 0 0 12px rgb(var(--color-accent-secondary) / 0.6);
   }
+
+  /*
+    Applied to <html> for one frame while a pending theme is committed
+    underneath the wipe overlay, so the (now-hidden) color swap snaps
+    instantly instead of visibly cross-fading before the overlay reveals it.
+  */
+  .theme-transition-lock,
+  .theme-transition-lock * {
+    transition: none !important;
+  }
+
+  /*
+    Per-item hover highlight for social tiles. `--social-color` defaults to
+    the site accent here so tiles without a brand color still work, and gets
+    overridden per-tile via an inline style (see SocialsColumn) when a hex
+    color is supplied. The solid declarations are a fallback for browsers
+    without color-mix() support; the color-mix ones after them win when supported.
+  */
+  .social-tile {
+    --social-color: rgb(var(--color-accent-primary));
+  }
+
+  .social-tile:hover,
+  .social-tile:focus-visible {
+    color: var(--social-color);
+    border-color: var(--social-color);
+    border-color: color-mix(in srgb, var(--social-color) 60%, transparent);
+    box-shadow: 0 0 12px 1px var(--social-color);
+    box-shadow: 0 0 12px 1px color-mix(in srgb, var(--social-color) 55%, transparent);
+  }
 }

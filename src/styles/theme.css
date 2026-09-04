@@ -5,7 +5,8 @@
   `transition-theme` utility instead of snapping.
 */
 
-:root {
+:root,
+[data-theme='light'] {
   color-scheme: light;
 
   /* Professional / Stripe-Vercel light palette */
