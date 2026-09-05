@@ -47,6 +47,7 @@ export function HighlightSection() {
                                 href={item.url}
                                 target="_blank"
                                 rel="noreferrer"
+                                aria-label={`Link to ${item.name}`}
                                 className="text-ink-faint transition-theme hover:text-accent-primary"
                             >
                                 <ExternalLinkIcon/>
