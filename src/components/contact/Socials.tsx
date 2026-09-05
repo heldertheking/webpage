@@ -12,7 +12,7 @@ export function SocialsColumn() {
             <div className="flex flex-col items-center gap-3">
                 <div
                     className="flex flex-1 items-center justify-center rounded-xl border border-edge bg-surface-raised p-3 shadow-panel transition-theme duration-300 lg:p-5">
-                    <div className="grid grid-flow-row grid-cols-5 gap-2 lg:grid-flow-col lg:grid-rows-5 lg:gap-2.5">
+                    <div className="grid grid-flow-row grid-cols-5 gap-2 lg:grid-flow-col lg:grid-cols-none lg:grid-rows-5 lg:gap-2.5">
                         {socials.map((social) => (
                             <a
                                 key={social.name}
