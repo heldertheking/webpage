@@ -22,13 +22,11 @@ export function HighlightSection() {
             ? portainer.data.status
                 ? 'Online'
                 : 'Offline'
-            : portainer.phase === 'error'
-                ? 'Unknown'
-                : 'Checking…'
+            : 'N/A'
     const statusTone: Tone =
         portainer.phase === 'ready' ? (portainer.data.status ? 'ok' : 'warn') : 'secondary'
-    const nodeValue = portainer.phase === 'ready' ? String(portainer.data.nodeCount) : '—'
-    const stackValue = portainer.phase === 'ready' ? String(portainer.data.stackCount) : '—'
+    const nodeValue = portainer.phase === 'ready' ? String(portainer.data.nodeCount) : 'N/A'
+    const stackValue = portainer.phase === 'ready' ? String(portainer.data.stackCount) : 'N/A'
 
     return (
         <Section

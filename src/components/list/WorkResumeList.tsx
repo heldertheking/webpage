@@ -1,4 +1,3 @@
-import {motion} from "framer-motion";
 import {WorkExperience} from "../../data/content.ts";
 import {ExternalLinkIcon} from "../icons.tsx";
 
@@ -18,8 +17,7 @@ export function WorkResumeList({items}: WorkResumeListProps) {
     return (
         <div className="flex flex-col gap-3">
             {items.map((item) => (
-                <motion.div
-                    layout
+                <div
                     key={`${item.organisation.name}-${item.title}`}
                     className="rounded-xl border border-edge bg-surface-raised p-4 shadow-panel transition-theme duration-300"
                 >
@@ -33,13 +31,14 @@ export function WorkResumeList({items}: WorkResumeListProps) {
                         href={item.organisation.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-sm font-medium text-accent-primary hover:underline"
+                        aria-label={`Open ${item.organisation.name}'s webpage`}
+                        className="inline-flex items-center gap-1 text-sm font-medium text-accent-primary underline underline-offset-2"
                     >
                         {item.organisation.name}
                         <ExternalLinkIcon/>
                     </a>
                     {item.description && <p className="mt-1 text-sm text-ink-muted">{item.description}</p>}
-                </motion.div>
+                </div>
             ))}
         </div>
     )

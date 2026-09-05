@@ -16,7 +16,8 @@
 
   --color-ink: 15 23 42;
   --color-ink-muted: 71 85 105;
-  --color-ink-faint: 148 163 184;
+  /* slate-500, not slate-400 — slate-400 sits at ~2.6:1 against white, failing WCAG AA (4.5:1) for the small print it's used for */
+  --color-ink-faint: 100 116 139;
 
   --color-edge: 226 232 240;
   --color-edge-strong: 203 213 225;

@@ -1,4 +1,3 @@
-import {motion} from "framer-motion";
 import {ProjectItem} from "../../data/content.ts";
 import {ExternalLinkIcon} from "../icons.tsx";
 
@@ -24,10 +23,10 @@ export function ProjectList({items}: ProjectListProps) {
     return (
         <div className="grid gap-3 sm:grid-cols-2">
             {items.map((project) => (
-                <motion.a
-                    layout
+                <a
                     key={project.name}
                     href={project.url}
+                    aria-label={`View ${project.name} on GitHub`}
                     target="_blank"
                     rel="noreferrer"
                     className="group flex flex-col justify-between gap-3 rounded-xl border border-edge bg-surface-raised p-4 shadow-panel transition-theme duration-300 hover:border-accent-primary/60 hover:shadow-glow-primary"
@@ -48,7 +47,7 @@ export function ProjectList({items}: ProjectListProps) {
                         </div>
                         <p className="mb-1 text-sm text-ink-muted">{project.description}</p>
                     </div>
-                </motion.a>
+                </a>
             ))}
         </div>
     )

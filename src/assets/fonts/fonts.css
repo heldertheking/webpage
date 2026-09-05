@@ -1,0 +1,22 @@
+/*
+  Self-hosted variable fonts (subset: latin), swapped in for the Google
+  Fonts stylesheet to remove the extra DNS/TLS hop + ~930ms font download
+  that sat on the critical rendering path. Each file is a single variable
+  font covering the whole 400-700 weight range used by the site, so only
+  one request per family is needed instead of one per weight.
+*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('./inter-latin-variable.woff2') format('woff2-variations'), url('./inter-latin-variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('./jetbrains-mono-latin-variable.woff2') format('woff2-variations'), url('./jetbrains-mono-latin-variable.woff2') format('woff2');
+}
