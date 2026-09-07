@@ -34,4 +34,4 @@
   # violation, visible as a theme flash on load). Regenerate with:
   #   git show HEAD:index.html | node -e "const c=require('crypto');let s='';process.stdin.on('data',d=>s+=d);process.stdin.on('end',()=>{const m=/<script(?![^>]*type=)[^>]*>([\s\S]*?)<\/script>/.exec(s);console.log('sha256-'+c.createHash('sha256').update(m[1],'utf-8').digest('base64'))})"
   # (reads the committed blob, not the CRLF working-tree copy, since that's what actually gets deployed)
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-nNIfCtLE6LjRujflRAhWj3D8JNsN0+YlDAWSAA+yStU='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-Cf0ccWAf+j0fLxgyQqYs4nqEnYTRJh7+ystDEE9RACU='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
