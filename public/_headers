@@ -24,14 +24,13 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
-  # script-src uses a hash instead of 'unsafe-inline' to cover the one inline
-  # <script> in index.html (the pre-paint theme setter). It does NOT need to
-  # cover the two <script type="application/ld+json"> blocks — CSP's
+  # script-src uses per-build hashes instead of 'unsafe-inline' to cover
+  # index.html's inline <script> (the pre-paint theme setter). It does NOT
+  # need to cover the two <script type="application/ld+json"> blocks — CSP's
   # script-src only governs elements that execute as script, and JSON-LD's
   # type makes them inert data, exempt regardless of hash/nonce.
-  # If that inline script's contents ever change, this hash must be
-  # regenerated or the script will silently stop running (console CSP
-  # violation, visible as a theme flash on load). Regenerate with:
-  #   git show HEAD:index.html | node -e "const c=require('crypto');let s='';process.stdin.on('data',d=>s+=d);process.stdin.on('end',()=>{const m=/<script(?![^>]*type=)[^>]*>([\s\S]*?)<\/script>/.exec(s);console.log('sha256-'+c.createHash('sha256').update(m[1],'utf-8').digest('base64'))})"
-  # (reads the committed blob, not the CRLF working-tree copy, since that's what actually gets deployed)
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-Cf0ccWAf+j0fLxgyQqYs4nqEnYTRJh7+ystDEE9RACU='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  # The marker below is substituted at build time by vite-plugins/csp-hash.ts
+  # with quoted 'sha256-...' hash sources, computed from the actual built
+  # index.html — so it always matches whatever bytes this specific build
+  # ships. Do not replace it with a literal hash by hand.
+  Content-Security-Policy: default-src 'self'; script-src 'self' __INLINE_SCRIPT_CSP_HASHES__; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
