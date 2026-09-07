@@ -83,7 +83,7 @@ export const terminalCommands: TerminalCommand[] = [
       const platform = args[0];
       const social = socials.find(social => social.name === platform);
       if (!social) {
-        return `[red]Invalid platform name \"${platform}\"[/red]`;
+        return `[red]Invalid platform name "${platform}"[/red]`;
       }
       window.open(social.url, '_blank')!.focus();
       return '[cyan]Opened link in new tab[/cyan]';

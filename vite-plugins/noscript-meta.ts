@@ -7,7 +7,7 @@
  * changes, update it here too.
  */
 export const noscriptMeta = {
-    siteName: 'Helder Oliveira',
+    siteName: 'Hélder Oliveira',
     tagline: 'Software Engineer & Builder',
     handleFallback: 'heldertheking',
     org: {name: 'Intuitive Collaboration', url: 'https://www.intuitive-collaboration.com/'},

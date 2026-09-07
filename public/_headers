@@ -1,0 +1,37 @@
+# Cloudflare Pages headers config — https://developers.cloudflare.com/pages/configuration/headers/
+# This file is copied verbatim from public/ into dist/ by Vite, and Cloudflare
+# Pages picks it up automatically on deploy. Only applies to this Pages
+# project's own hostnames (heldertheking.com / www.heldertheking.com) — other
+# subdomains (e.g. automation.heldertheking.com) are served elsewhere and are
+# entirely unaffected by anything below.
+
+# Vite fingerprints build output by content hash (e.g. index-Dl2pOMDd.js).
+# A rebuild that changes content always produces a new filename, so this
+# exact path can never be asked to serve different bytes than what's already
+# cached — safe to cache for a year. index.html itself is NOT covered by this
+# rule (Cloudflare Pages already serves it with max-age=0, must-revalidate),
+# which is what makes this safe: every visit re-fetches index.html and gets
+# the current pointer to whichever hashed bundle is actually current.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*
+  # No includeSubDomains: this must only ever apply to the hostnames this
+  # Pages project actually serves, never to other subdomains that may need
+  # plain HTTP for internal/private endpoints.
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
+  # script-src uses a hash instead of 'unsafe-inline' to cover the one inline
+  # <script> in index.html (the pre-paint theme setter). It does NOT need to
+  # cover the two <script type="application/ld+json"> blocks — CSP's
+  # script-src only governs elements that execute as script, and JSON-LD's
+  # type makes them inert data, exempt regardless of hash/nonce.
+  # If that inline script's contents ever change, this hash must be
+  # regenerated or the script will silently stop running (console CSP
+  # violation, visible as a theme flash on load). Regenerate with:
+  #   git show HEAD:index.html | node -e "const c=require('crypto');let s='';process.stdin.on('data',d=>s+=d);process.stdin.on('end',()=>{const m=/<script(?![^>]*type=)[^>]*>([\s\S]*?)<\/script>/.exec(s);console.log('sha256-'+c.createHash('sha256').update(m[1],'utf-8').digest('base64'))})"
+  # (reads the committed blob, not the CRLF working-tree copy, since that's what actually gets deployed)
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-nNIfCtLE6LjRujflRAhWj3D8JNsN0+YlDAWSAA+yStU='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'

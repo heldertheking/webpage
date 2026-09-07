@@ -7,7 +7,7 @@ import {whoami} from "../data/content.ts";
 export function HeroSection() {
     const {isDark} = useTheme()
 
-    const name = isDark ? env.username : 'Helder Oliveira'
+    const name = isDark ? env.username : 'Hélder Oliveira'
 
     const subtitle = isDark
         ? 'Off the clock: gaming, custom PC builds, night motorcycle rides, and a homelab running proper GitOps.'

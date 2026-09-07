@@ -81,7 +81,7 @@ export function Header({terminalOpen, onToggleTerminal}: HeaderProps) {
           </span>
                     <div className="flex flex-col leading-none">
             <span className="font-mono text-sm font-semibold tracking-tight text-ink">
-              Helder Oliveira
+              Hélder Oliveira
             </span>
                         <span
                             className={`text-[11px] uppercase tracking-widest ${
