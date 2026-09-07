@@ -33,4 +33,15 @@
   # with quoted 'sha256-...' hash sources, computed from the actual built
   # index.html — so it always matches whatever bytes this specific build
   # ships. Do not replace it with a literal hash by hand.
-  Content-Security-Policy: default-src 'self'; script-src 'self' __INLINE_SCRIPT_CSP_HASHES__; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  #
+  # 'sha256-lAEggDdSlO5FuF2XZvs16LbO9I9YHK0PMKyiKAhkt18=' plus
+  # https://static.cloudflareinsights.com below are for Cloudflare's
+  # automatic Web Analytics beacon, which the zone injects into every
+  # response at the edge (Speed > Optimization > "Automatically insert
+  # relevant Cloudflare JavaScript") — it never appears in this repo's build
+  # output, so csp-hash.ts can't discover or hash it. That inline loader's
+  # content is fixed by Cloudflare for this zone's token, so its hash is
+  # hardcoded here rather than build-generated; if the beacon setup is ever
+  # reconfigured in the dashboard, this hash and the connect-src entry below
+  # may need updating too.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-lAEggDdSlO5FuF2XZvs16LbO9I9YHK0PMKyiKAhkt18=' https://static.cloudflareinsights.com __INLINE_SCRIPT_CSP_HASHES__; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
