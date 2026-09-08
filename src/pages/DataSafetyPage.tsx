@@ -3,14 +3,6 @@ import dataSafetyRaw from '../assets/data-safety.md?raw'
 import useMarkdownFile from '../hooks/useMarkdownFile'
 import { useTheme } from '../theme/useTheme'
 
-/**
- * Standalone data-safety / privacy page, reached via /data-safety (see the
- * pathname check in main.tsx) rather than react-router - the rest of the
- * site is a single page with in-page anchors, so a second full router was
- * unwarranted for one static page. Content itself lives in data-safety.md
- * so it can be edited without touching this component - title and
- * last-updated date come from that file's frontmatter.
- */
 export function DataSafetyPage() {
   const { isDark } = useTheme()
   const { data, content } = useMarkdownFile(dataSafetyRaw)

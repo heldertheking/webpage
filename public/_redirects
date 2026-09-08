@@ -1,6 +1,0 @@
-# Cloudflare Pages redirects - https://developers.cloudflare.com/pages/configuration/redirects/
-# Static files (assets, favicons, etc.) are matched first and served as-is;
-# this only catches paths with no matching file, e.g. a direct GET to
-# /data-safety, so the SPA's own pathname check (see src/main.tsx) can render
-# the right page client-side.
-/*  /index.html  200
