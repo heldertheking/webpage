@@ -20,8 +20,7 @@ export default function useMarkdownFile(rawContent: string): Markdown {
         const separator = line.indexOf(':')
         if (separator === -1) continue
         const key = line.slice(0, separator).trim()
-        const value = line.slice(separator + 1).trim().replace(/^["']|["']$/g, '')
-        data[key] = value
+        data[key] = line.slice(separator + 1).trim().replace(/^["']|["']$/g, '')
     }
 
     return {data, content: match[2]}
