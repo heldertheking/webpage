@@ -13,7 +13,7 @@ import { useTheme } from './useTheme'
  * (see `resolveTransition` in ThemeProvider): while it's growing, the page
  * underneath still holds its old colors untouched, and the disc itself is
  * pinned to the incoming theme's palette via its own `data-theme` override
- * — so the swap only becomes visible once the screen is entirely covered,
+ * - so the swap only becomes visible once the screen is entirely covered,
  * instead of the rest of the page cross-fading mid-wipe.
  */
 export function ThemeLayout({ children }: { children: ReactNode }) {
@@ -39,7 +39,7 @@ export function ThemeLayout({ children }: { children: ReactNode }) {
               }}
               exit={{ opacity: 0, transition: { duration: 0.3 } }}
               transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-              // Fully covered at this point — safe to commit the real theme
+              // Fully covered at this point - safe to commit the real theme
               // now. Clearing `pendingTheme` unmounts this element, which
               // plays the `exit` fade above to reveal the (already-switched)
               // page underneath.

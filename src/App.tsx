@@ -37,6 +37,12 @@ function App() {
           <StackSection />
           <HighlightSection />
           <ContactSection />
+
+          <footer className="mt-16 border-t border-edge pt-6 text-sm text-ink-faint">
+            <a href="/data-safety" className="underline underline-offset-2 italic hover:text-ink-muted">
+              Privacy &amp; data safety
+            </a>
+          </footer>
         </main>
       </div>
 

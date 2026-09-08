@@ -1,4 +1,4 @@
-import {about} from '../data/content'
+import {about} from '../assets/content'
 import {useTheme} from '../theme/useTheme'
 import {Section} from '../components/section/Section.tsx'
 import {Markdown} from '../components/markdown/Markdown.tsx'

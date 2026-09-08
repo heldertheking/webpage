@@ -36,7 +36,7 @@
   <meta property="og:image:type" content="image/png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:alt" content="Hélder Oliveira — Software Engineer & Builder"/>
+  <meta property="og:image:alt" content="Hélder Oliveira - Software Engineer & Builder"/>
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image"/>
@@ -105,6 +105,10 @@
       if (favicon) favicon.href = theme === 'dark' ? '/favicon.svg' : '/favicon-light.svg';
     })();
   </script>
+
+  <!-- Cloudflare Web Analytics (manual setup - no inline JS, so no CSP hash needed) -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "063c82aac6914f4e9773a987d592382a"}'></script>
 </head>
 <body>
 <div id="root"></div>

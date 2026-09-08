@@ -33,7 +33,7 @@ interface HardwareStatusBadgeProps {
 /**
  * Light mode reads as a clean engineering LED indicator (Stripe/Vercel status
  * pill); dark mode reads as a workbench gauge with a pulsing neon halo. Same
- * markup, same props — only the token classes below branch on theme.
+ * markup, same props - only the token classes below branch on theme.
  */
 export function HardwareStatusBadge({ label, value, tone = 'ok' }: HardwareStatusBadgeProps) {
   const { isDark } = useTheme()

@@ -1,4 +1,4 @@
-# heldertheking.com — robots.txt
+# heldertheking.com - robots.txt
 # Everything on this site is public. All crawlers, including AI/LLM
 # crawlers used for training, retrieval, and answer-engine citations,
 # are welcome.

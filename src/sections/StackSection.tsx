@@ -1,7 +1,7 @@
 import {useTheme} from '../theme/useTheme'
 import {Section} from "../components/section/Section.tsx";
 import {LanguageTree} from "../components/stack/LanguageTree.tsx";
-import {stack} from "../data/content.ts";
+import {stack} from "../assets/content.ts";
 
 export function StackSection() {
     const {isDark} = useTheme()

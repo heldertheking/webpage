@@ -1,7 +1,7 @@
 import {Section} from "../components/section/Section.tsx";
 import {useTheme} from "../theme/useTheme.ts";
 import {env} from "../config/env.ts";
-import {whoami} from "../data/content.ts";
+import {whoami} from "../assets/content.ts";
 
 
 export function HeroSection() {
@@ -29,7 +29,7 @@ export function HeroSection() {
             className="mb-12 max-w-3xl"
         >
             <p className="text-lg text-ink-muted">{text}</p><br/>
-            <p className="text-lg text-ink-muted">{cta} <a className="text-accent-primary" href={isDark ? '#projects' : '#about'}>here</a></p>
+            <p className="text-lg text-ink-muted">{cta} <a className="text-accent-primary underline underline-offset-2 italic hover:brightness-110" href={isDark ? '#projects' : '#about'}>here</a></p>
         </Section>
     )
 }

@@ -1,6 +1,6 @@
 /**
- * Page copy that exists only inline in JSX — Header, HeroSection,
- * WorkExperienceSection, ContactSection — rather than in `src/data/content.ts`.
+ * Page copy that exists only inline in JSX - Header, HeroSection,
+ * WorkExperienceSection, ContactSection - rather than in `src/assets/content.ts`.
  * The noscript-fallback plugin (`./noscript.ts`) combines this with the real
  * content.ts data to build a text-only version of the page for clients that
  * don't execute JavaScript (most AI/crawler bots included). If that JSX copy

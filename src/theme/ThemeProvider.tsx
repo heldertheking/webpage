@@ -15,7 +15,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(readInitialTheme)
   // A theme change first lands here rather than in `theme` directly, so the
   // wipe overlay (ThemeLayout) has a chance to fully cover the screen before
-  // `resolveTransition` commits it — see that component for the choreography.
+  // `resolveTransition` commits it - see that component for the choreography.
   const [pendingTheme, setPendingTheme] = useState<Theme | null>(null)
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       // Suspend theme-driven color transitions and flip the DOM attribute
       // synchronously, in that order, so the swap happens instantly
       // (invisibly, behind the wipe) instead of animating. Setting the
-      // attribute here too — not just via the effect below — guarantees it
+      // attribute here too - not just via the effect below - guarantees it
       // lands before the lock is lifted; that effect runs async and can't
       // make that guarantee on its own.
       document.documentElement.classList.add('theme-transition-lock')

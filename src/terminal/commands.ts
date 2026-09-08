@@ -1,4 +1,4 @@
-import {about, projects, socials, whoami} from '../data/content'
+import {about, projects, socials, whoami} from '../assets/content'
 import type { TerminalCommand, TerminalOutputLine, TerminalRuntime } from './types'
 
 function jsonFile(value: unknown): TerminalOutputLine {
@@ -12,7 +12,7 @@ function csvFile(headers: string[], rows: string[][]): TerminalOutputLine {
 }
 
 /**
- * Files `cat`/`ls` can see — generated on the fly from content.ts (nothing
+ * Files `cat`/`ls` can see - generated on the fly from content.ts (nothing
  * is fetched from `public/`), so they can never drift from the real site
  * content. Add an entry here to make a new file `cat`-able.
  */
@@ -41,7 +41,7 @@ export const terminalCommands: TerminalCommand[] = [
     description: 'List available commands',
     help: 'Usage: help',
     delegate: (_args, runtime) => [
-      ...runtime.commands.map((c) => `[cyan]${c.command}[/cyan] — ${c.description}`),
+      ...runtime.commands.map((c) => `[cyan]${c.command}[/cyan] - ${c.description}`),
       `[magenta]note:[/magenta] try [cyan]ls[/cyan] for files readable with [cyan]cat[/cyan]`,
     ],
   },
@@ -93,7 +93,7 @@ export const terminalCommands: TerminalCommand[] = [
     command: 'ls',
     description: 'List files readable with `cat`',
     help: 'Usage: ls',
-    delegate: () => Object.entries(VIRTUAL_FILES).map(([name, file]) => `[cyan]${name}[/cyan] — ${file.describe}`),
+    delegate: () => Object.entries(VIRTUAL_FILES).map(([name, file]) => `[cyan]${name}[/cyan] - ${file.describe}`),
   },
   {
     command: 'cat',
@@ -103,7 +103,7 @@ export const terminalCommands: TerminalCommand[] = [
       const [file] = args
       if (!file) return '[red]cat: missing file operand[/red]'
       const virtualFile = VIRTUAL_FILES[file]
-      if (!virtualFile) return `[red]cat: ${file}: no such file[/red] — try [cyan]ls[/cyan]`
+      if (!virtualFile) return `[red]cat: ${file}: no such file[/red] - try [cyan]ls[/cyan]`
       return virtualFile.render(runtime)
     },
   },

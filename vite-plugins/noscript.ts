@@ -32,9 +32,9 @@ const ROOT_DIV = '<div id="root"></div>'
  * Injects a `<noscript>` fallback into index.html containing the full text
  * content of the page. Most AI/LLM crawlers (GPTBot, ClaudeBot, CCBot,
  * PerplexityBot, ...) fetch raw HTML without running JavaScript, so without
- * this they only see an empty `<div id="root">` — this plugin gives them (and
+ * this they only see an empty `<div id="root">` - this plugin gives them (and
  * real no-JS visitors) the same substantive content the React app renders,
- * built at build/dev time from `src/data/content.ts` plus `./noscript-meta.ts`
+ * built at build/dev time from `src/assets/content.ts` plus `./noscript-meta.ts`
  * for the page copy that only lives in JSX.
  */
 export function noscriptFallbackPlugin(): Plugin {
@@ -59,15 +59,15 @@ function inlineImportMetaEnv(source: string, env: Record<string, string>): strin
 }
 
 /**
- * Loads `src/data/content.ts` as data. It can't be imported directly from
+ * Loads `src/assets/content.ts` as data. It can't be imported directly from
  * this Node-side plugin because it (transitively, via `src/config/env.ts`)
- * reads `import.meta.env`, which only exists inside Vite's client transform —
+ * reads `import.meta.env`, which only exists inside Vite's client transform -
  * so instead we transpile it with the TypeScript compiler API, inline the env
  * values ourselves, and execute the result from a temp directory.
  */
 async function loadContentModule(env: Record<string, string>): Promise<ContentModule> {
     const envSource = await fs.readFile(path.resolve(process.cwd(), 'src/config/env.ts'), 'utf-8')
-    const contentSource = await fs.readFile(path.resolve(process.cwd(), 'src/data/content.ts'), 'utf-8')
+    const contentSource = await fs.readFile(path.resolve(process.cwd(), 'src/assets/content.ts'), 'utf-8')
 
     const envJs = inlineImportMetaEnv(envSource, env)
     const contentJs = ts
@@ -147,7 +147,7 @@ function buildNoscriptHtml(content: ContentModule): string {
     const projectItems = projects
         .map((p) => {
             const org = p.org ? ` (${escapeHtml(p.org.name)})` : ''
-            const link = p.url ? ` — <a href="${escapeHtml(p.url)}">${escapeHtml(p.url)}</a>` : ''
+            const link = p.url ? ` - <a href="${escapeHtml(p.url)}">${escapeHtml(p.url)}</a>` : ''
             return `<li><strong>${escapeHtml(p.name)}</strong>${org} [${escapeHtml(p.state)}]: ${escapeHtml(p.description)}${link}</li>`
         })
         .join('\n')
@@ -156,7 +156,7 @@ function buildNoscriptHtml(content: ContentModule): string {
         experiences
             .map((e) => {
                 const period = e.period === 'current' ? 'Current' : escapeHtml(e.period)
-                const desc = e.description ? ` — ${escapeHtml(e.description)}` : ''
+                const desc = e.description ? ` - ${escapeHtml(e.description)}` : ''
                 const org = e.organisation.url
                     ? `<a href="${escapeHtml(e.organisation.url)}">${escapeHtml(e.organisation.name)}</a>`
                     : escapeHtml(e.organisation.name)
@@ -170,7 +170,7 @@ function buildNoscriptHtml(content: ContentModule): string {
                 s.frameworks?.length ? `frameworks: ${s.frameworks.join(', ')}` : '',
                 s.tools?.length ? `tools: ${s.tools.join(', ')}` : '',
             ].filter(Boolean)
-            const extra = parts.length ? ` — ${escapeHtml(parts.join('; '))}` : ''
+            const extra = parts.length ? ` - ${escapeHtml(parts.join('; '))}` : ''
             return `<li><strong>${escapeHtml(s.language)}</strong> (${escapeHtml(s.use)})${extra}</li>`
         })
         .join('\n')
@@ -183,9 +183,9 @@ function buildNoscriptHtml(content: ContentModule): string {
 
     return `<noscript>
 <div id="noscript-fallback" lang="en" style="max-width:42rem;margin:0 auto;padding:2rem 1.25rem;font-family:system-ui,sans-serif;line-height:1.6;">
-  <h1>${escapeHtml(meta.siteName)} — ${escapeHtml(meta.tagline)}</h1>
-  <p>This is a JavaScript-rendered single-page portfolio. You're seeing a plain-text fallback because JavaScript didn't run — a machine-readable summary is also published at <a href="/llms.txt">/llms.txt</a>.</p>
-  <p><strong>${escapeHtml(meta.handleFallback)}</strong> — Software Engineering Apprentice at <a href="${escapeHtml(meta.org.url)}">${escapeHtml(meta.org.name)}</a>.</p>
+  <h1>${escapeHtml(meta.siteName)} - ${escapeHtml(meta.tagline)}</h1>
+  <p>This is a JavaScript-rendered single-page portfolio. You're seeing a plain-text fallback because JavaScript didn't run - a machine-readable summary is also published at <a href="/llms.txt">/llms.txt</a>.</p>
+  <p><strong>${escapeHtml(meta.handleFallback)}</strong> - Software Engineering Apprentice at <a href="${escapeHtml(meta.org.url)}">${escapeHtml(meta.org.name)}</a>.</p>
 
   <h2>Introduction</h2>
   <p>${escapeHtml(meta.intro.professional)}</p>

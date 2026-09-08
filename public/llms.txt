@@ -1,6 +1,6 @@
 # Hélder Oliveira
 
-> Portfolio of Hélder Oliveira (heldertheking) — a Software Engineering Apprentice
+> Portfolio of Hélder Oliveira (heldertheking) - a Software Engineering Apprentice
 > specializing in full-stack development (Java, Spring Boot, TypeScript, Angular)
 > with a homelab (Docker/Portainer) and embedded ESP32/CAN-bus side projects.
 

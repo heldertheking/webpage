@@ -1,14 +1,14 @@
-# Cloudflare Pages headers config — https://developers.cloudflare.com/pages/configuration/headers/
+# Cloudflare Pages headers config - https://developers.cloudflare.com/pages/configuration/headers/
 # This file is copied verbatim from public/ into dist/ by Vite, and Cloudflare
 # Pages picks it up automatically on deploy. Only applies to this Pages
-# project's own hostnames (heldertheking.com / www.heldertheking.com) — other
+# project's own hostnames (heldertheking.com / www.heldertheking.com) - other
 # subdomains (e.g. automation.heldertheking.com) are served elsewhere and are
 # entirely unaffected by anything below.
 
 # Vite fingerprints build output by content hash (e.g. index-Dl2pOMDd.js).
 # A rebuild that changes content always produces a new filename, so this
 # exact path can never be asked to serve different bytes than what's already
-# cached — safe to cache for a year. index.html itself is NOT covered by this
+# cached - safe to cache for a year. index.html itself is NOT covered by this
 # rule (Cloudflare Pages already serves it with max-age=0, must-revalidate),
 # which is what makes this safe: every visit re-fetches index.html and gets
 # the current pointer to whichever hashed bundle is actually current.
@@ -26,22 +26,17 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
   # script-src uses per-build hashes instead of 'unsafe-inline' to cover
   # index.html's inline <script> (the pre-paint theme setter). It does NOT
-  # need to cover the two <script type="application/ld+json"> blocks — CSP's
+  # need to cover the two <script type="application/ld+json"> blocks - CSP's
   # script-src only governs elements that execute as script, and JSON-LD's
   # type makes them inert data, exempt regardless of hash/nonce.
   # The marker below is substituted at build time by vite-plugins/csp-hash.ts
   # with quoted 'sha256-...' hash sources, computed from the actual built
-  # index.html — so it always matches whatever bytes this specific build
+  # index.html - so it always matches whatever bytes this specific build
   # ships. Do not replace it with a literal hash by hand.
   #
-  # 'sha256-lAEggDdSlO5FuF2XZvs16LbO9I9YHK0PMKyiKAhkt18=' plus
-  # https://static.cloudflareinsights.com below are for Cloudflare's
-  # automatic Web Analytics beacon, which the zone injects into every
-  # response at the edge (Speed > Optimization > "Automatically insert
-  # relevant Cloudflare JavaScript") — it never appears in this repo's build
-  # output, so csp-hash.ts can't discover or hash it. That inline loader's
-  # content is fixed by Cloudflare for this zone's token, so its hash is
-  # hardcoded here rather than build-generated; if the beacon setup is ever
-  # reconfigured in the dashboard, this hash and the connect-src entry below
-  # may need updating too.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-lAEggDdSlO5FuF2XZvs16LbO9I9YHK0PMKyiKAhkt18=' https://static.cloudflareinsights.com __INLINE_SCRIPT_CSP_HASHES__; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  # https://static.cloudflareinsights.com below allows index.html's manual
+  # Cloudflare Web Analytics <script src=...> tag - it has a src and no
+  # inline content, so (unlike an auto-injected inline loader would) it
+  # needs no CSP hash at all, just this host in script-src. connect-src
+  # allows the beacon's own report requests to cloudflareinsights.com.
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com __INLINE_SCRIPT_CSP_HASHES__; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'

@@ -15,7 +15,7 @@ interface TerminalEntry {
 }
 
 interface TerminalProps {
-    /** Bumped by the header button — every change re-opens the terminal, centered. */
+    /** Bumped by the header button - every change re-opens the terminal, centered. */
     openSignal: number
     onVisibleChange?: (visible: boolean) => void
 }
@@ -27,7 +27,7 @@ function welcomeEntries(isDark: boolean): TerminalEntry[] {
             role: 'output',
             text: isDark
                 ? 'root@workbench:~$ interactive shell ready.'
-                : 'Software Engineering Apprentice — interactive console.',
+                : 'Software Engineering Apprentice - interactive console.',
         },
         {
             id: -1,
@@ -39,7 +39,7 @@ function welcomeEntries(isDark: boolean): TerminalEntry[] {
 
 /**
  * A floating, draggable terminal window. Mounted once at the app root and
- * kept alive permanently — minimizing only hides it (scrollback and command
+ * kept alive permanently - minimizing only hides it (scrollback and command
  * history survive), closing hides it *and* resets it back to a blank shell.
  */
 export function Terminal({openSignal, onVisibleChange}: TerminalProps) {
@@ -111,7 +111,7 @@ export function Terminal({openSignal, onVisibleChange}: TerminalProps) {
         const command = terminalCommands.find((c) => c.command.toLowerCase() === name.toLowerCase())
 
         if (!command) {
-            addEntry({role: 'output', text: `[red]command not found:[/red] ${name} — try [cyan]help[/cyan]`})
+            addEntry({role: 'output', text: `[red]command not found:[/red] ${name} - try [cyan]help[/cyan]`})
             return
         }
 
@@ -217,7 +217,7 @@ export function Terminal({openSignal, onVisibleChange}: TerminalProps) {
                                 <span
                                     className={`h-2.5 w-2.5 rounded-full bg-accent-secondary ${isDark ? 'shadow-glow-secondary' : ''}`}/>
                                 <span className="ml-2 select-none font-mono text-xs text-ink-muted">
-                  {isDark ? 'workbench — zsh' : 'console.ts'}
+                  {isDark ? 'workbench - zsh' : 'console.ts'}
                 </span>
                             </div>
 

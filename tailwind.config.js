@@ -6,7 +6,7 @@ export default {
     extend: {
       colors: {
         // Semantic tokens backed by CSS variables (see src/styles/theme.css).
-        // Same class names work in both modes — only the variable values change.
+        // Same class names work in both modes - only the variable values change.
         surface: {
           DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',
           raised: 'rgb(var(--color-surface-raised) / <alpha-value>)',

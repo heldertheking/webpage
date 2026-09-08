@@ -14,7 +14,7 @@ export type PortainerStatusState =
 
 const POLL_INTERVAL_MS = 600_000
 
-// The webhook responds with `[{ Status, Stacks, Nodes }]` — a one-element
+// The webhook responds with `[{ Status, Stacks, Nodes }]` - a one-element
 // array of PascalCase fields, not the flat/camelCase shape you'd guess.
 interface PortainerStatusPayload {
   Status?: boolean
@@ -58,7 +58,7 @@ export function usePortainerStatus(): PortainerStatusState {
     }
 
     // Deferred to idle time so this third-party request never competes with
-    // the initial paint — it's a "nice to have" status badge, not content.
+    // the initial paint - it's a "nice to have" status badge, not content.
     let idleHandle: number | undefined
     const scheduleIdle = window.requestIdleCallback ?? ((cb: IdleRequestCallback) => window.setTimeout(cb, 1))
     const cancelIdle = window.cancelIdleCallback ?? window.clearTimeout

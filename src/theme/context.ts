@@ -7,7 +7,7 @@ export interface ThemeContextValue {
   isDark: boolean
   toggleTheme: () => void
   setTheme: (theme: Theme) => void
-  /** Set while a theme change has been requested but not yet committed — see `resolveTransition`. */
+  /** Set while a theme change has been requested but not yet committed - see `resolveTransition`. */
   pendingTheme: Theme | null
   /** Commits `pendingTheme` to `theme`. Called once the covering wipe animation has fully painted over the screen, so the swap is invisible. */
   resolveTransition: () => void

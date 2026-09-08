@@ -1,5 +1,5 @@
 import {motion} from "framer-motion";
-import {StackDetails} from "../../data/content.ts";
+import {StackDetails} from "../../assets/content.ts";
 import {useTheme} from "../../theme/useTheme";
 
 export interface LanguageTreeProps {

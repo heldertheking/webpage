@@ -1,4 +1,4 @@
-import {projects} from '../data/content'
+import {projects} from '../assets/content'
 import {usePortainerStatus} from '../hooks/usePortainerStatus'
 import {useTheme} from "../theme/useTheme.ts";
 import {Section} from "../components/section/Section.tsx";
@@ -7,7 +7,7 @@ import {ExternalLinkIcon} from "../components/icons.tsx";
 
 /**
  * Highlights are the things worth calling out regardless of which side of
- * the theme toggle someone lands on — content and copy here never branch on
+ * the theme toggle someone lands on - content and copy here never branch on
  * theme, only the design tokens do. Driven by `projects` (highlight: true)
  * in content.ts, so adding another highlight is a data change, not a
  * component change.

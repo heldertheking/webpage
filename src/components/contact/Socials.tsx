@@ -1,5 +1,5 @@
 import type {CSSProperties} from "react";
-import {socials} from "../../data/content";
+import {socials} from "../../assets/content";
 import {SocialIcon} from "../icons.tsx";
 
 interface SocialTileStyle extends CSSProperties {

@@ -1,4 +1,4 @@
-import {ProjectItem} from "../../data/content.ts";
+import {ProjectItem} from "../../assets/content.ts";
 import {ExternalLinkIcon} from "../icons.tsx";
 
 export interface ProjectListProps {

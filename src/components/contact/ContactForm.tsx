@@ -58,7 +58,7 @@ export function ContactForm() {
                 })
                 if (!response.ok) throw new Error(`Request failed with status ${response.status}`)
             } else {
-                // No backend wired up yet — log the payload so the form is easy to
+                // No backend wired up yet - log the payload so the form is easy to
                 // verify locally, and set VITE_CONTACT_ENDPOINT once one exists.
                 console.info('Contact form payload (no VITE_CONTACT_ENDPOINT set):', payload)
                 await new Promise((resolve) => setTimeout(resolve, 500))
@@ -159,7 +159,7 @@ export function ContactForm() {
                         exit={{opacity: 0}}
                         className="text-sm font-medium text-accent-ok"
                     >
-                        Message sent — thanks, I'll get back to you soon.
+                        Message sent - thanks, I'll get back to you soon.
                     </motion.p>
                 )}
                 {status === 'error' && (

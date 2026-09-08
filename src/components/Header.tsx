@@ -11,7 +11,7 @@ interface HeaderProps {
 export function Header({terminalOpen, onToggleTerminal}: HeaderProps) {
     const {isDark} = useTheme()
 
-    // "Work" (job history) only exists in light/professional mode — see WorkExperienceSection.
+    // "Work" (job history) only exists in light/professional mode - see WorkExperienceSection.
     const navItems = ['About', ...(isDark ? [] : ['Work']), 'Projects', 'Stack', 'Highlights', 'Contact']
 
     enum Status {

@@ -62,7 +62,7 @@ function renderInline(text: string, theme: MarkdownTheme, keyPrefix: string): Re
 
 /**
  * A deliberately small markdown renderer: headings, bold/italic, inline
- * code, links, fenced code blocks, bullet lists, blockquotes and rules —
+ * code, links, fenced code blocks, bullet lists, blockquotes and rules -
  * not a CommonMark implementation. Styling is fully driven by `theme`, so
  * the same parser can render both the terminal's `cat`-able files (see
  * `terminal/markdown.tsx`) and regular prose sections (see

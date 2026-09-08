@@ -1,4 +1,4 @@
-import {WorkExperience} from "../../data/content.ts";
+import {WorkExperience} from "../../assets/content.ts";
 import {ExternalLinkIcon} from "../icons.tsx";
 
 export interface WorkResumeListProps {
@@ -32,7 +32,7 @@ export function WorkResumeList({items}: WorkResumeListProps) {
                         target="_blank"
                         rel="noreferrer"
                         aria-label={`Open ${item.organisation.name}'s webpage`}
-                        className="inline-flex items-center gap-1 text-sm font-medium text-accent-primary underline underline-offset-2"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-accent-primary underline underline-offset-2 italic"
                     >
                         {item.organisation.name}
                         <ExternalLinkIcon/>

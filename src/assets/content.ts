@@ -15,15 +15,15 @@ export const whoami: Record<'personal' | 'professional', Whoami> = {
 
 export interface AboutCopy {
     eyebrow: string
-    /** Markdown — rendered via components/markdown/Markdown.tsx. */
+    /** Markdown - rendered via components/markdown/Markdown.tsx. */
     body: string
 }
 
-// "personal" shows in dark mode, "professional" in light mode — same split as `projects` below.
+// "personal" shows in dark mode, "professional" in light mode - same split as `projects` below.
 export const about: Record<'personal' | 'professional', AboutCopy> = {
     personal: {
         eyebrow: '// whoami',
-        body: `I'm a builder at heart—whether that means turning wrenches, sniffing vehicle bus traffic, or deploying container stacks.
+        body: `I'm a builder at heart - whether that means turning wrenches, sniffing vehicle bus traffic, or deploying container stacks.
 
 My homelab is my ongoing technical playground. I built a complete home infrastructure from scratch using Docker and Portainer, treating it like a production cluster while tackling fresh challenges in networking, container orchestration, and self-hosting.
 
@@ -33,8 +33,8 @@ When I'm not analyzing raw ECU frames or managing container stacks, you can find
 
 ## // CURRENT_THREADS
 
-* \`[sys.ops]\` Homelab Stack — self-hosted Docker & Portainer ecosystem built from scratch
-* \`[hw.build]\` ESP32 Moto Dash — custom ECU telemetry via direct sensors, CAN bus & K-line
+* \`[sys.ops]\` Homelab Stack - self-hosted Docker & Portainer ecosystem built from scratch
+* \`[hw.build]\` ESP32 Moto Dash - custom ECU telemetry via direct sensors, CAN bus & K-line
 * \`[dev.stack]\` Java, Spring Boot, TypeScript, Angular, ESP32 / Embedded Systems
 * \`[sys.idle]\` Night motorcycle rides & hardware modding`,
     },
@@ -160,7 +160,7 @@ export interface Social {
     name: string
     url: string
     // URL to an SVG, rendered as a CSS mask so it inherits the site's ink
-    // color — swap in whatever icon source you like as long as it's an SVG.
+    // color - swap in whatever icon source you like as long as it's an SVG.
     icon: string
     /** Hex color (e.g. "#5865F2") used for the border/text/glow on hover. Falls back to the site accent when omitted. */
     color?: string
