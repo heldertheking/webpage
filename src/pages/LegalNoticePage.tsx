@@ -1,11 +1,11 @@
 import { Markdown } from '../components/markdown/Markdown'
-import dataSafetyRaw from '../assets/data-safety.md?raw'
+import legalNoticeRaw from '../assets/legal-notice.md?raw'
 import useMarkdownFile from '../hooks/useMarkdownFile'
 import { useTheme } from '../theme/useTheme'
 
-export function DataSafetyPage() {
+export function LegalNoticePage() {
   const { isDark } = useTheme()
-  const { data, content } = useMarkdownFile(dataSafetyRaw)
+  const { data, content } = useMarkdownFile(legalNoticeRaw)
   const lastUpdated = new Date(data.lastUpdated).toLocaleDateString('en-GB', {
     year: 'numeric',
     month: 'long',
@@ -36,7 +36,7 @@ export function DataSafetyPage() {
       </header>
 
       <main className="relative mx-auto max-w-3xl px-6 py-16">
-        <p className="mb-2 font-mono text-xs uppercase tracking-widest text-ink-faint">Data safety</p>
+        <p className="mb-2 font-mono text-xs uppercase tracking-widest text-ink-faint">Legal notice</p>
         <h1 className="mb-2 text-3xl font-bold text-ink">{data.title}</h1>
         <p className="mb-12 text-sm text-ink-muted">Last updated {lastUpdated}</p>
 

@@ -23,9 +23,11 @@
   --color-edge-strong: 203 213 225;
 
   --color-accent-primary: 37 99 235;
-  --color-accent-secondary: 13 148 136;
+  /* Darkened from Tailwind's teal-600 (13 148 136, 3.74:1 on white) to clear WCAG AA (4.5:1) for normal text. */
+  --color-accent-secondary: 10 110 102;
   --color-accent-warn: 180 83 9;
-  --color-accent-ok: 22 163 74;
+  /* Darkened from Tailwind's green-600 (22 163 74, 3.30:1 on white) to clear WCAG AA (4.5:1) for normal text. */
+  --color-accent-ok: 18 127 59;
 
   --shadow-panel: 0 1px 2px rgb(15 23 42 / 0.06), 0 1px 3px rgb(15 23 42 / 0.08);
   --shadow-panel-lg: 0 8px 24px -4px rgb(15 23 42 / 0.12), 0 2px 8px rgb(15 23 42 / 0.06);
@@ -46,7 +48,8 @@
 
   --color-ink: 226 232 240;
   --color-ink-muted: 148 163 184;
-  --color-ink-faint: 71 85 105;
+  /* Was 71 85 105 (a copy of the light theme's ink-muted) - only ~2.4:1 against the dark surfaces, failing WCAG AA. */
+  --color-ink-faint: 115 130 152;
 
   --color-edge: 30 41 59;
   --color-edge-strong: 51 65 85;

@@ -39,4 +39,4 @@
   # inline content, so (unlike an auto-injected inline loader would) it
   # needs no CSP hash at all, just this host in script-src. connect-src
   # allows the beacon's own report requests to cloudflareinsights.com.
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com __INLINE_SCRIPT_CSP_HASHES__; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com __INLINE_SCRIPT_CSP_HASHES__; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://automation.heldertheking.com https://cloudflareinsights.com https://static.cloudflareinsights.com/beacon.min.js; frame-ancestors 'none'; base-uri 'self'; form-action 'self'

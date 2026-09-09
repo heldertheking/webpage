@@ -26,7 +26,7 @@ export function ProjectList({items}: ProjectListProps) {
                 <a
                     key={project.name}
                     href={project.url}
-                    aria-label={`View ${project.name} on GitHub`}
+                    aria-label={`${project.name}: ${project.description} - view on GitHub`}
                     target="_blank"
                     rel="noreferrer"
                     className="group flex flex-col justify-between gap-3 rounded-xl border border-edge bg-surface-raised p-4 shadow-panel transition-theme duration-300 hover:border-accent-primary/60 hover:shadow-glow-primary"

@@ -164,6 +164,8 @@ export interface Social {
     icon: string
     /** Hex color (e.g. "#5865F2") used for the border/text/glow on hover. Falls back to the site accent when omitted. */
     color?: string
+    /** Hex color used instead of `color` in dark mode - for brand colors (like GitHub's near-black) too dark to read against the dark theme's surface. */
+    darkColor?: string
 }
 
 const SIMPLE_ICONS = 'https://cdn.jsdelivr.net/npm/simple-icons@13/icons'
@@ -174,6 +176,8 @@ export const socials: Social[] = [
         url: `https://github.com/${env.username}`,
         icon: `${SIMPLE_ICONS}/github.svg`,
         color: '#181717',
+        // #181717 is ~1.07:1 against the dark theme's surface - effectively invisible on hover.
+        darkColor: '#e6e6e6',
     },
     {
         name: 'Discord',
